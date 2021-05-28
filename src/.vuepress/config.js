@@ -39,6 +39,10 @@ module.exports = {
         link: '/guide/',
       },
       {
+        text: 'Security',
+        link: '/security/',
+      },
+      {
         text: 'App',
         link: 'https://partyparrot.finance'
       }
@@ -52,6 +56,16 @@ module.exports = {
             '',
             'pai',
             'faucet',
+          ]
+        }
+      ],
+      '/security/': [
+        {
+          title: 'Security',
+          collapsable: false,
+          children: [
+            '',
+            'mainnet',
           ]
         }
       ],
