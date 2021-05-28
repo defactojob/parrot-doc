@@ -1,0 +1,1 @@
+The Parrot Protocol is a DeFi network built on Solana that will include the stablecoin PAI, a non-custodial lending market, and a margin trading vAMM. These are all use cases designed to solve one single problem: making value locked in DeFi systems accessible.
