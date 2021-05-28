@@ -1,0 +1,79 @@
+digraph parrot_accounts{
+    graph [rankdir = "LR"];
+    node [fontsize = "16"shape = "ellipse"];
+    edge [];
+
+
+// --accounts
+
+    "sys::rent" [
+    ]
+
+    "debt_type" [
+        label = "<f0> debt_type |
+        [parrot::DebtType] |
+        <owner> +owner
+        "
+        shape = "record"
+    ]
+
+    "vault_type" [
+        label = "<f0> vault_type |
+        [parrot::VaultType init] |
+        <debt_type> +debt_type |
+        <collateral_token> +collateral_token |
+        <collateral_token_holder> +collateral_token_holder |
+        <price_oracle> +price_oracle |
+        <pda> PDA = [pubkey, nonce]
+        "
+        shape = "record"
+    ]
+
+    "collateral_token" [
+        label = "<f0> collateral_token |
+        [spl-token::Mint]
+        "
+        shape = "record"
+    ]
+
+    "collateral_token_holder" [
+        label = "<f0> collateral_token_holder |
+        [spl-token::Account] |
+        <mint>+mint |
+        <owner>+owner
+        "
+        shape = "record"
+    ]
+
+    "price_oracle" [
+        label = "<f0> price_oracle |
+        [flux::Aggregator]"
+        shape = "record"
+    ]
+
+    "owner" [
+        label = "owner (signer)"
+    ]
+
+
+// --account relations
+
+    debt_type:owner -> owner [label="=="]
+
+    vault_type:debt_type -> debt_type:f0 [label="init"]
+    vault_type:collateral_token -> collateral_token:f0 [label="init"]
+    vault_type:collateral_token_holder -> collateral_token_holder:f0 [label="init"]
+    vault_type:price_oracle -> price_oracle:f0 [label="init"]
+    vault_type:pda -> collateral_token_holder:owner [style="dotted" label="unchecked"]
+
+    collateral_token_holder:mint -> collateral_token:f0 [label="=="]
+
+    // debt_type:interests_holder -> interests_holder:f0 [label="init"]
+    // debt_type:debt_originator -> debt_originator:f0 [label="init"]
+    // debt_type:debt_token -> debt_token:f0 [label="init"]
+
+    // debt_token:f0 -> debt_originator:mint [label="=="]
+    // debt_token:f0 -> interests_holder:mint [label="=="]
+
+    // debt_type:pda -> debt_originator:owner [style="dotted" label="unchecked"]
+}

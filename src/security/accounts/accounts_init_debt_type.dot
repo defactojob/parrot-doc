@@ -1,0 +1,67 @@
+digraph parrot_accounts{
+    graph [rankdir = "LR"];
+    node [fontsize = "16"shape = "ellipse"];
+    edge [];
+
+
+// --accounts
+
+    "sys::rent" [
+    ]
+
+    "clock" [
+    ]
+
+    "debt_type" [
+        label = "<f0> debt_type |
+        [parrot::DebtType init] |
+        <owner> +owner |
+        <debt_originator> +debt_originator |
+        <interests_holder> +interests_holder|
+        <debt_token> +debt_token|
+        <pda> PDA = [pubkey, nonce]
+        "
+        shape = "record"
+    ]
+
+    "debt_token" [
+        label = "<f0> debt_token |
+        [spl-token::Mint]
+        "
+        shape = "record"
+    ]
+
+    "debt_originator" [
+        label = "<f0> debt_originator |
+        [spl-token::Account] |
+        <mint>+mint |
+        <owner>+owner
+        "
+        shape = "record"
+    ]
+
+    "interests_holder" [
+        label = "<f0> interests_holder |
+        [spl-token::Account] |
+        <mint>+mint
+        "
+        shape = "record"
+    ]
+
+    "owner" [
+        label = "owner"
+    ]
+
+
+// --account relations
+
+    debt_type:owner -> owner [label="init"]
+    debt_type:interests_holder -> interests_holder:f0 [label="init"]
+    debt_type:debt_originator -> debt_originator:f0 [label="init"]
+    debt_type:debt_token -> debt_token:f0 [label="init"]
+
+    debt_token:f0 -> debt_originator:mint [label="=="]
+    debt_token:f0 -> interests_holder:mint [label="=="]
+
+    debt_type:pda -> debt_originator:owner [style="dotted" label="unchecked"]
+}

@@ -1,0 +1,70 @@
+digraph parrot_accounts{
+    graph [rankdir = "LR"];
+    node [fontsize = "16"shape = "ellipse"];
+    edge [];
+
+
+// --accounts
+
+    "sys::clock" [
+
+    ]
+
+    "spl::token::PROGRAM_ID" [
+    ]
+
+    "vault" [
+        label = "<f0> vault |
+        [parrot::Vault mut] |
+        <vault_type> +vault_type|
+        <owner> +owner
+        "
+        shape = "record"
+    ]
+
+    "vault_type" [
+        label = "<f0> vault_type |
+        [parrot::VaultType mut] |
+        <collateral_token> +collateral_token |
+        <collateral_token_holder> +collateral_token_holder
+        "
+        shape = "record"
+    ]
+
+    "collateral_from" [
+        label = "<f0> collateral_from|
+        [spl-token::Account mut]|
+        <mint>+mint|
+        <owner>+owner
+        ",
+        shape = "record"
+    ]
+
+    "collateral_from_authority" [
+        label = "collateral_from_authority (signed)"
+    ]
+
+    "collateral_to" [
+        label = "<f0> collateral_to|
+        [spl-token::Account mut]|
+        <mint>+mint
+        ",
+        shape = "record"
+    ]
+
+
+
+
+// --account relations
+    collateral_from:owner -> collateral_from_authority [style="dotted" label="=="]
+    collateral_from:mint -> collateral_to:mint [style="dotted" label="=="]
+
+    collateral_to:f0 -> vault_type:collateral_token_holder [label="=="]
+
+
+    // vault_type:collateral_token -> collateral_token:f0 [label="=="];
+
+
+    vault:vault_type -> vault_type:f0 [label="has_one"];
+
+}

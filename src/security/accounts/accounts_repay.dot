@@ -1,0 +1,86 @@
+digraph parrot_accounts{
+    graph [rankdir = "LR"];
+    node [fontsize = "16"shape = "ellipse"];
+    edge [];
+
+
+// --accounts
+
+    "sys::clock" [
+    ]
+
+    "spl::token::PROGRAM_ID" [
+    ]
+
+    "vault" [
+        label = "<f0> vault |
+        [parrot::Vault mut] |
+        <vault_type> +vault_type
+        "
+        shape = "record"
+    ]
+
+    "vault_type" [
+        label = "<f0> vault_type |
+        [parrot::VaultType mut] |
+        <debt_type> +debt_type
+        "
+        shape = "record"
+    ]
+
+    "debt_type" [
+        label = "
+        <f0> debt_type |
+        [parrot::DebtType] |
+        <debt_token> +debt_token |
+        <debt_originator> +debt_originator
+        "
+        shape = "record"
+    ]
+
+    "debt_token" [
+        label = "<f0> debt_token |
+        [spl-token::Mint]"
+        shape = "record"
+    ]
+
+    "debt_from" [
+        label = "<f0> debt_from|
+        [spl-token::Account mut]|
+        <mint>+mint|
+        <owner>+owner
+        ",
+        shape = "record"
+    ]
+
+    "debt_from_authority" [
+        label = "debt_from_authority (signed)"
+    ]
+
+    "debt_originator" [
+        label = "<f0> debt_originator|
+        [spl-token::Account mut]|
+        <mint>+mint
+        ",
+        shape = "record"
+    ]
+
+
+    debt_type:debt_token -> debt_token:f0 [label="=="]
+    debt_type:debt_originator -> debt_originator:f0 [label="=="]
+
+    debt_from:owner -> debt_from_authority [style="dotted" label="=="]
+    debt_from:mint -> debt_token:f0 [style="dotted" label="=="]
+
+    debt_originator:mint -> debt_token:f0 [style="dotted" label="=="]
+
+
+    // --account relations
+
+
+    // vault_type:collateral_token -> collateral_token:f0 [label="=="];
+
+    vault:vault_type -> vault_type:f0 [label="has_one"];
+    vault_type:debt_type -> debt_type:f0 [label="has_one"];
+
+}

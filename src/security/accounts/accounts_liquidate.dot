@@ -1,0 +1,202 @@
+digraph parrot_accounts{
+    graph [rankdir = "LR"];
+    node [fontsize = "16"shape = "ellipse"];
+    edge [];
+    
+// --programs
+
+    "system" [
+        label = "system"
+        shape = "circle"
+        color = "grey"
+        style = "filled"
+    ]
+
+    "prog_parrot" [
+        label = "prog_parrot"
+        shape = "circle"
+        color = "grey"
+        style = "filled"
+    ];
+
+    "prog_token" [
+        shape = "circle"
+        color = "grey"
+        style = "filled"
+    ]
+
+    "prog_oracle" [
+        shape = "circle"
+        color = "grey"
+        style = "filled"
+    ]
+
+// --accounts
+
+    "aggregator" [
+        label = "<f0> aggregator | btc:usd | price | decimal"
+        shape = "record"
+    ]
+
+    "master" [
+        label = "<f0>master"
+        shape = "record"
+        style = "filled"
+        fillcolor = "limegreen"
+    ]
+    
+    "debtor" [
+        label = "<f0>debtor|"
+        shape = "record"
+        style = "filled"
+        fillcolor = "limegreen"
+    ]
+    "liquidator" [
+        label = "<f0>liquidator|"
+        shape = "record"
+        style = "filled"
+        fillcolor = "limegreen"
+    ]
+
+    "debt_type" [
+        label = "
+        <f0> DebtType|
+        <debt_token> +debt_token|
+        <owner> +owner|
+        "
+        shape = "record"
+    ]
+    
+    "vault_type" [
+        label = "<f0> VaultType|
+        <debt_type> +debt_type|
+        <collateral_token> +collateral_token|
+        <collateral_token_holder> +collateral_token_holder|
+        <price_oracle> +price_oracle
+        "
+        shape = "record"
+    ]
+
+    "debt_token" [
+        label = "<f0> debt_token |
+        :Mint |
+        <mint_authority>mint_authority(PDA)|
+        "
+        shape = "record"
+    ]
+
+    "collateral_token" [
+        label = "<f0> collateral_token|
+        :Mint"
+        shape = "record"
+    ]
+
+    "collateral_token_holder" [
+        label = "<f0> collateral_token_holder|
+        :TokenAccount|
+        <mint>+mint|
+        <owner>+owner(PDA)|
+        "
+        shape = "record"
+    ]
+
+    "vault" [
+        label = "<f0> Vault |
+        <vault_type> +vault_type|
+        <owner> +owner|
+        "
+        shape = "record"
+    ]
+
+    "debtor_collateral_token_account" [
+        label = "<f0> debtor_collateral_token_account|
+        :TokenAccount|
+        <mint>+mint|
+        <owner>+owner"
+        shape = "record"
+    ]
+
+    "LiquidatorVault" [
+        label = "<f0> LiquidatorVault|
+        <vault_type> +vault_type|
+        <owner> +owner|"
+        shape = "record"
+    ]
+
+    "InterestVault" [
+        label = "<f0> InterestVault|
+        <vault_type>+vault_type|
+        "
+        shape = "record"
+    ]
+
+    "DebtorDebtTokenAccount" [
+        label = "<f0>DebtorDebtTokenAccount|
+        :TokenAccount|
+        <mint>+mint|
+        <owner>+owner
+        ",
+        shape = "record"
+    ]
+    "LiquidatorDebtTokenAccount" [
+        label = "<f0>LiquidatorDebtTokenAccount|
+        :TokenAccount|
+        <mint>+mint|
+        <owner>+owner
+        ",
+        shape = "record"
+    ]
+
+// --relations
+// --owner prog
+    // master -> system [color=green];
+    // debtor -> system [color=green];
+    aggregator:f0 -> prog_oracle [color=green, style="dotted", label="trusted"];
+    debt_token:f0 -> prog_token [color=green, style="dotted", label="trusted"];
+    collateral_token:f0 -> prog_token [color=green, style="dotted", label="trusted"];
+    // collateral_token_holder:f0 -> prog_token [color=green];
+    vault_type:f0 -> prog_parrot [color=green, style="dotted", label="mut"];
+    vault:f0 -> prog_parrot [color=green, style="dotted", label="mut"];
+    debt_type:f0 -> prog_parrot [color=green, style="dotted", label="trusted"];
+    // debtor_collateral_token_account:f0 -> prog_token[color=green];
+    // DebtorDebtTokenAccount:f0 -> prog_token[color=green];
+    LiquidatorDebtTokenAccount:f0 -> prog_token[color=green, style="dotted", label="CPI"];
+    liquidator:f0 -> system[style="dotted", label="not_care"];
+    LiquidatorVault:f0 -> prog_parrot[color=green, style="dotted", label="mut"];
+    // InterestVault:f0 -> prog_parrot[color=green];
+
+// --account relations
+    debt_token:mint_authority -> prog_parrot [style=dotted];
+
+    debt_type:debt_token -> debt_token:f0;
+    // debt_type:owner -> master:f0;
+    
+    // collateral_token_holder:mint -> collateral_token:f0;
+    // collateral_token_holder:owner -> prog_parrot[style=dotted];
+    
+    vault_type:debt_type -> debt_type:f0 ;
+    vault_type:collateral_token -> collateral_token:f0;
+    // vault_type:collateral_token_holder -> collateral_token_holder:f0;
+    vault_type:price_oracle -> aggregator:f0;
+
+    // debtor_collateral_token_account:mint -> collateral_token:f0;
+    // debtor_collateral_token_account:owner -> debtor:f0;
+
+    vault:vault_type -> vault_type:f0;   
+    // vault:owner -> debtor:f0;
+
+    LiquidatorVault:vault_type -> vault_type:f0;
+    LiquidatorVault:owner -> liquidator:f0[label="signer"];
+
+    // InterestVault:vault_type -> vault_type:f0;
+
+    // DebtorDebtTokenAccount:owner -> debtor:f0;
+    // DebtorDebtTokenAccount:mint -> debt_token:f0;
+    
+    LiquidatorDebtTokenAccount:owner -> liquidator:f0[style="dotted", label="CPI"];
+    LiquidatorDebtTokenAccount:mint -> debt_token:f0[style="dotted", label="CPI"];
+
+    // , style="dotted", label=""
+    // [style="dotted", label=""]
+
+}

@@ -1,0 +1,52 @@
+digraph parrot_accounts{
+    graph [rankdir = "LR"];
+    node [fontsize = "16"shape = "ellipse"];
+    edge [];
+
+
+// --accounts
+
+    "sys::clock" [
+    ]
+
+    "sys::rent" [
+    ]
+
+    "sys::SYSTEM_PROGRAM" [
+    ]
+
+    "vault" [
+        label = "<f0> vault |
+        [parrot::Vault mut] |
+        <vault_type> +vault_type|
+        <owner> +owner
+        "
+        shape = "record"
+    ]
+
+    "vault_type" [
+        label = "<f0> vault_type |
+        [parrot::VaultType]
+        "
+        shape = "record"
+    ]
+
+    "owner" [
+        label = "owner (signer)"
+    ]
+
+
+// --account relations
+    // collateral_from:owner -> collateral_from_authority [style="dotted" label="=="]
+    vault:vault_type -> vault_type:f0 [label="init"]
+    vault:owner -> owner [label="init"]
+
+    // collateral_to:f0 -> vault_type:collateral_token_holder [label="=="]
+
+
+    // vault_type:collateral_token -> collateral_token:f0 [label="=="];
+
+
+    // vault:vault_type -> vault_type:f0 [label="has_one"];
+
+}
