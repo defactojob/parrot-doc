@@ -6,12 +6,11 @@ sidebarDepth: 2
 
 This tutorial guides you through the process of minting and repaying PAI.
 
-Currently Parrot supports USDC and USDT deposits only, and you can generate 100
-PAI for every 105 of USDC (or USDT) collateral.
+Currently Parrot supports USDC and USDT deposits only, and you can generate 100 PAI for every 105 of USDC (or USDT) collateral.
 
-No interests are collected on PAI generated from stablecoin vaults. Furthermore, for stablecoin vaults, the system treat the price as pegged to 1:1, never to fluctuate. This way stablecoin vaults such as USDC would *never* liquidate.
+No interests are collected on PAI generated from stablecoin vaults. Furthermore, for stablecoin vaults, the system treats the price as pegged to 1:1, never to fluctuate. This way stablecoin vaults such as USDC would *never* liquidate.
 
-When price oracle are launched on Solana mainnet, we will introduce non-stable assets such as SOL, ETH, and BTC.
+When price oracles are launched on Solana mainnet, we will introduce non-stable assets such as SOL, ETH, and BTC.
 
 ## Connect Wallet
 
