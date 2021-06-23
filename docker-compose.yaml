@@ -1,0 +1,14 @@
+version: "3"
+services:
+  builder:
+    image: node:14-alpine
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: 10m
+    volumes:
+      - type: bind
+        source: ./
+        target: /app/parrot-doc
+    command: sh -c "cd /app/parrot-doc && yarn && yarn build"
