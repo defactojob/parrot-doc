@@ -234,10 +234,12 @@ vaultType USDC: BgA1FW2FbKCSEoi96atEZK9PToqvVos4f9hqESLJ2Zt1
 * `collateralTokenHolder.owner` should be `vaultTypePDA`
 * minimumCollateralRatio: 10495
 
-##  Vault Type (SOL)
+## Vault Type (SOL)
+
+vaultType wSOL: 8PcJ5FmtmuYQCvBhaHkVY5DKVBn8BsMtV5RVqHU4h8ir
 
 ```
-vaultType SOL: 8PcJ5FmtmuYQCvBhaHkVY5DKVBn8BsMtV5RVqHU4h8ir
+vaultType wSOL: 8PcJ5FmtmuYQCvBhaHkVY5DKVBn8BsMtV5RVqHU4h8ir
 {
   version: 0,
   debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
@@ -249,18 +251,19 @@ vaultType SOL: 8PcJ5FmtmuYQCvBhaHkVY5DKVBn8BsMtV5RVqHU4h8ir
   liquidationCollateralRatio: 12500,
   liquidationPenalty: 500,
   interestRate: 14623560433,
-  interestAccum: 28861117364810532,
-  interestAccumUpdated: 84330983,
-  accruedInterests: 557223923484712961749,
+
+  // ...
   debtCeiling: 25000000001,
-  totalDebt: 22268345347135964885
+  // ...
+
 }
+
 {
   vaultTypePDA: 62Xb5ydBN1vrkg85SuKEL6aPv4bsy6iTiH3Jvki8NfNr,
   collateralHolder: {
     mint: So11111111111111111111111111111111111111112,
     owner: 62Xb5ydBN1vrkg85SuKEL6aPv4bsy6iTiH3Jvki8NfNr,
-    amount: 100043434,
+    amount: 102043434,
     delegateOption: 0,
     delegate: null,
     state: 1,
@@ -274,10 +277,65 @@ vaultType SOL: 8PcJ5FmtmuYQCvBhaHkVY5DKVBn8BsMtV5RVqHU4h8ir
     rentExemptReserve: 2039280
   }
 }
+interest rate per year: 499.999999972176 (5%)
 ```
 
-* collateralToken: So11111111111111111111111111111111111111112
+* collateralToken: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
 * priceOracle: 6C8dCcYDd7ykNT2EFU6drGAhJhoGqbEBU5kNowHox34p
-* interestRate: 500 (5%)
+* interestRate: 14623560433
 * `collateralTokenHolder.owner` should be `vaultTypePDA`
 * minimumCollateralRatio: 80000 (800%)
+* liquidationCollateralRatio: 12500 (125%)
+* liquidationPenalty: 500 (5%)
+* debtCeiling 25000000001 (25k)
+
+## Vault Type (PTT)
+
+Parrot Test Token is a vault type used by the team to test liquidation using the mainnet environment.
+
+* Team controls the minting of PTT for testing purposes.
+* Debt ceiling is set to $1000. There is no way to go above that.
+* totalDebt is a fixed point U64F64 number, represented as `13082536426707183180`.
+  * This is equivalent to about $0.7 PAI
+
+```
+{
+  version: 0,
+  debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
+  collateralToken: E2Ub8wPfxxEvdrtumbfeL2HaQHgpd3gUGkDxDmmgN3p9,
+  collateralTokenHolder: CACqmtL8sQtyiJT1seToU3pLnYSC6NHzF6y3vBS2uNp3,
+  priceOracle: 5o3S9uVpJh2mkFW44GHtLuNjCFqFV1CumR2Q7mC44LFD,
+  nonce: 254,
+  minimumCollateralRatio: 80000,
+  liquidationCollateralRatio: 12500,
+  liquidationPenalty: 500,
+  interestRate: 14623560433,
+  interestAccum: 8115871310468938,
+  interestAccumUpdated: 84341889,
+  accruedInterests: 14475329890214995650124,
+  debtCeiling: 1000000000,
+  totalDebt: 13082536426707183180
+}
+
+{
+  vaultTypePDA: 4wqB5wkBbQu4E4V3RofEJmy2zgHh354nvvPqhZw2ySVc,
+  collateralHolder: {
+    mint: E2Ub8wPfxxEvdrtumbfeL2HaQHgpd3gUGkDxDmmgN3p9,
+    owner: 4wqB5wkBbQu4E4V3RofEJmy2zgHh354nvvPqhZw2ySVc,
+    amount: 63776,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+
+interest rate per year: 499.999999972176
+```
