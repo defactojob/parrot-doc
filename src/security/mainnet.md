@@ -233,3 +233,51 @@ vaultType USDC: BgA1FW2FbKCSEoi96atEZK9PToqvVos4f9hqESLJ2Zt1
 * interestRate: 0
 * `collateralTokenHolder.owner` should be `vaultTypePDA`
 * minimumCollateralRatio: 10495
+
+##  Vault Type (SOL)
+
+```
+vaultType SOL: 8PcJ5FmtmuYQCvBhaHkVY5DKVBn8BsMtV5RVqHU4h8ir
+{
+  version: 0,
+  debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
+  collateralToken: So11111111111111111111111111111111111111112,
+  collateralTokenHolder: 9xRXTJWjKwv9sLczhWaPGD6hsJo26qRGN65Essq7R4TM,
+  priceOracle: 6C8dCcYDd7ykNT2EFU6drGAhJhoGqbEBU5kNowHox34p,
+  nonce: 252,
+  minimumCollateralRatio: 80000,
+  liquidationCollateralRatio: 12500,
+  liquidationPenalty: 500,
+  interestRate: 14623560433,
+  interestAccum: 28861117364810532,
+  interestAccumUpdated: 84330983,
+  accruedInterests: 557223923484712961749,
+  debtCeiling: 25000000001,
+  totalDebt: 22268345347135964885
+}
+{
+  vaultTypePDA: 62Xb5ydBN1vrkg85SuKEL6aPv4bsy6iTiH3Jvki8NfNr,
+  collateralHolder: {
+    mint: So11111111111111111111111111111111111111112,
+    owner: 62Xb5ydBN1vrkg85SuKEL6aPv4bsy6iTiH3Jvki8NfNr,
+    amount: 100043434,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 1,
+    isNative: true,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: 2039280
+  }
+}
+```
+
+* collateralToken: So11111111111111111111111111111111111111112
+* priceOracle: 6C8dCcYDd7ykNT2EFU6drGAhJhoGqbEBU5kNowHox34p
+* interestRate: 500 (5%)
+* `collateralTokenHolder.owner` should be `vaultTypePDA`
+* minimumCollateralRatio: 80000 (800%)
