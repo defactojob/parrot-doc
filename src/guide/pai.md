@@ -34,7 +34,7 @@ Select the wallet you want to connect with.
 
 ## Borrow PAI
 
-To borrow PAI, go to the **[Mint](https://partyparrot.finance/mint)** page and click the **Mint** tab.
+Navigate to the **[Mint](https://partyparrot.finance/mint)** page and click the **Mint** tab.
 
 <img src="./tutorial/mint-pai.png" width="500">
 
@@ -42,7 +42,7 @@ Try depositing 2 USDC as collateral to mint 1 PAI. After minting, the resulting 
 
 ## Repay PAI
 
-To repay PAI, go to the **[Mint](https://partyparrot.finance/mint)** page and click the **Repay** tab.
+Navigate to the **[Mint](https://partyparrot.finance/mint)** page and click the **Repay** tab.
 
 <img src="./tutorial/repay-pai.png" width="500">
 
