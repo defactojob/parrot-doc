@@ -22,5 +22,5 @@ Navigate to the [Faucet](https://dev.partyparrot.finance/faucet)
 
 ![picture1.jpg](./tutorial/faucet.png)
 
-1. Click "SOL airdrop" to receive one SOL.
-2. Click "USDC airdrop" to receive 100 USDC.
+1. Click "SOL airdrop" to receive one SOL
+2. Click "USDC airdrop" to receive 100 USDC
