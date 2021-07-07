@@ -380,8 +380,9 @@ debtToken: {
 
 ## Vault Type (USDC-pBTC)
 
-```
 vaultType USDC:pBTC 5dRJyjAadyEQ4vFr8ic1q7nncPiRX5JsHLPQPHgENmSc
+
+```
 {
   version: 0,
   debtType: BMvtz4D3pDD7PQrf19A9VDPBN6HCBTww26Gcx1YMy3XJ,
@@ -389,7 +390,7 @@ vaultType USDC:pBTC 5dRJyjAadyEQ4vFr8ic1q7nncPiRX5JsHLPQPHgENmSc
   collateralTokenHolder: 3D8UyBKWyQ26B6dupWjtehrUifi5nF6LmGwD6hwgB6yg,
   priceOracle: EjwENJ2jbJ9psKeapDezu5oKQe9chnU4wQJFE4ufymDs,
   nonce: 255,
-  minimumCollateralRatio: 80000,
+  minimumCollateralRatio: 40000,
   liquidationCollateralRatio: 12500,
   liquidationPenalty: 500,
   interestRate: 2924712087,
