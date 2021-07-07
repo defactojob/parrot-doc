@@ -24,7 +24,7 @@ Then select the wallet you want to connect with:
 
 ## Mint PAI
 
-Navigate to the [Mint](https://partyparrot.finance/mint) to mint PAI.
+Navigate to the [Mint](https://parrot.fi/mint) to mint PAI.
 
 <img src="./tutorial/mint-pai.png" width="500">
 
@@ -32,7 +32,7 @@ Here you deposit 2 USDC as collateral to mint 1 PAI. After minting, the resultin
 
 ## Repay PAI
 
-You can repay PAI at the [Mint](https://partyparrot.finance/mint) page, by switching to the "Repay" tab:
+You can repay PAI at the [Mint](https://parrot.fi/mint) page, by switching to the "Repay" tab:
 
 <img src="./tutorial/repay-pai.png" width="500">
 
@@ -54,7 +54,7 @@ Here you repay 0.5 PAI, while keeping the collateral at the same level. After re
 
 ## Manage Vaults
 
-Navigate to the [Vaults](https://partyparrot.finance/vaults) to view and manage your vaults.
+Navigate to the [Vaults](https://parrot.fi/vaults) to view and manage your vaults.
 
 In this page, you can see the stats of your vaults, mint PAI, or repay PAI.
 
