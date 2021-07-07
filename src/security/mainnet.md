@@ -23,7 +23,7 @@ This document contains the list of accounts related to the Parrot Protocol.
 * Upgrade Authority should be multsig PDA
   * 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te
 
-## DebtType
+## DebtType (PAI)
 
 debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h
 
@@ -288,6 +288,142 @@ interest rate per year: 499.999999972176 (5%)
 * liquidationCollateralRatio: 12500 (125%)
 * liquidationPenalty: 500 (5%)
 * debtCeiling 25000000001 (25k)
+
+## Debt Type (pBTC)
+
+debtType: BMvtz4D3pDD7PQrf19A9VDPBN6HCBTww26Gcx1YMy3XJ
+
+```
+{
+  debtType: {
+    version: 0,
+    debtToken: DYDWu4hE4MN3aH897xQ3sRTs5EAjJDmQsKLNhbpUiKun,
+    debtOriginator: E2Z1LARf4JhYB4KM4HM9nZYTkown9UqcDKV7iYDcfwFP,
+    interestsHolder: 7dPyEyWxdfqAUyTpuUyxhtSKQYFgVsw9v8qXmvkA5or2,
+    owner: 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te,
+    nonce: 255
+  },
+  debtTypePDA: 8df6UEhPTC97TXi5FQBG9bA3GrXYU7nTWtzrTV1exmKs,
+  debtToken: {
+    mintAuthorityOption: 1,
+    mintAuthority: 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te,
+    supply: 100000000,
+    decimals: 8,
+    isInitialized: true,
+    freezeAuthorityOption: 0,
+    freezeAuthority: <Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00>
+  },
+  debtOriginator: {
+    mint: DYDWu4hE4MN3aH897xQ3sRTs5EAjJDmQsKLNhbpUiKun,
+    owner: 8df6UEhPTC97TXi5FQBG9bA3GrXYU7nTWtzrTV1exmKs,
+    amount: 99972700,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+        isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  },
+  interestsHolder: {
+    mint: DYDWu4hE4MN3aH897xQ3sRTs5EAjJDmQsKLNhbpUiKun,
+    owner: 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te,
+    amount: 0,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+```
+
+* `debtType.debtToken` should be PAI
+  * DYDWu4hE4MN3aH897xQ3sRTs5EAjJDmQsKLNhbpUiKun
+* `debtType.debtToken.mintAuthority` should be multisig PDA
+  * 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te
+* `debtType.debtOriginator.owner` should be `debtTypePDA`
+  * 8aTV8MJRHMxRq6KSBVENEJciSQGKdheCEHAtM6j7qL1w
+  * TODO needs transfer
+* `debtType.interestsHolder.owner` should be multisig PDA
+  * 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te
+
+
+### Debt Token (pBTC)
+
+```
+debtToken: {
+  mintAuthorityOption: 1,
+  mintAuthority: 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te,
+  supply: 100000000,
+  decimals: 8,
+  isInitialized: true,
+  freezeAuthorityOption: 0,
+  freezeAuthority: <Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00>
+}
+```
+
+* SPL Token Account: [DYDWu4hE4MN3aH897xQ3sRTs5EAjJDmQsKLNhbpUiKun](https://explorer.solana.com/address/DYDWu4hE4MN3aH897xQ3sRTs5EAjJDmQsKLNhbpUiKun)
+* Mint Authority: [5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te](https://explorer.solana.com/address/5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te)
+  * Should be multisig PDA
+* Decimals: 8
+
+## Vault Type (USDC-pBTC)
+
+```
+vaultType USDC:pBTC 5dRJyjAadyEQ4vFr8ic1q7nncPiRX5JsHLPQPHgENmSc
+{
+  version: 0,
+  debtType: BMvtz4D3pDD7PQrf19A9VDPBN6HCBTww26Gcx1YMy3XJ,
+  collateralToken: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,
+  collateralTokenHolder: 3D8UyBKWyQ26B6dupWjtehrUifi5nF6LmGwD6hwgB6yg,
+  priceOracle: EjwENJ2jbJ9psKeapDezu5oKQe9chnU4wQJFE4ufymDs,
+  nonce: 255,
+  minimumCollateralRatio: 80000,
+  liquidationCollateralRatio: 12500,
+  liquidationPenalty: 500,
+  interestRate: 2924712087,
+  interestAccum: 1613750839971468,
+  interestAccumUpdated: 85882672,
+  accruedInterests: 9980998175877125,
+  debtCeiling: 100000000,
+  totalDebt: 503596123193268934993925
+}
+{
+  vaultTypePDA: DQV7nFUWKSsiT7eWPhfGhdiRFsU1DmnEYgbFGKuPPsMs,
+  collateralHolder: {
+    mint: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,
+    owner: DQV7nFUWKSsiT7eWPhfGhdiRFsU1DmnEYgbFGKuPPsMs,
+    amount: 100006897,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+interest rate per year: 100.0000000070496
+```
+
+* oracle: EjwENJ2jbJ9psKeapDezu5oKQe9chnU4wQJFE4ufymDs
+  * how many SAT to purchase USDC
+* 1% borrow rate
 
 ## Vault Type (PTT)
 
