@@ -353,8 +353,7 @@ debtType: BMvtz4D3pDD7PQrf19A9VDPBN6HCBTww26Gcx1YMy3XJ
 * `debtType.debtToken.mintAuthority` should be multisig PDA
   * 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te
 * `debtType.debtOriginator.owner` should be `debtTypePDA`
-  * 8aTV8MJRHMxRq6KSBVENEJciSQGKdheCEHAtM6j7qL1w
-  * TODO needs transfer
+  * 8df6UEhPTC97TXi5FQBG9bA3GrXYU7nTWtzrTV1exmKs
 * `debtType.interestsHolder.owner` should be multisig PDA
   * 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te
 
