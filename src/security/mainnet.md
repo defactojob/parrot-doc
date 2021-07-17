@@ -289,6 +289,59 @@ interest rate per year: 499.999999972176 (5%)
 * liquidationPenalty: 500 (5%)
 * debtCeiling 25000000001 (25k)
 
+## Vault Type (SRM)
+
+vaultType SRM:PAI 2EZB7gas5vmRAtB3HQkGvacQ4NKvdmC1gaeMUSE3ivKD
+
+```
+{
+  version: 0,
+  debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
+  collateralToken: SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuAoKWRt,
+  collateralTokenHolder: Fvea6gBMAuzkcUozAShMo7LkHESU7rrduPo7BiPvNsAW,
+  priceOracle: GwbKzS7V9bpk2vx7o2g35vU9a2yawsWPc5hq317MHF7z,
+  nonce: 251,
+  minimumCollateralRatio: 15000,
+  liquidationCollateralRatio: 12500,
+  liquidationPenalty: 500,
+  interestRate: 14623560433,
+  interestAccum: 3785835066257638,
+  interestAccumUpdated: 87396196,
+  accruedInterests: 6955565113978023521844054,
+  debtCeiling: 3000000000000,
+  totalDebt: 4369700547673592419420132375382
+}
+
+{
+  vaultTypePDA: q96RZiNkec9PAfLtgrJaGLvXSK9fxs4DQ1g6RbiSvJg,
+  collateralHolder: {
+    mint: SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuAoKWRt,
+    owner: q96RZiNkec9PAfLtgrJaGLvXSK9fxs4DQ1g6RbiSvJg,
+    amount: 171089305400,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+
+interest rate per year: 499.999999972176
+```
+
+* collateralToken: SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuAoKWRt
+* priceOracle: GwbKzS7V9bpk2vx7o2g35vU9a2yawsWPc5hq317MHF7z
+* interestRate: 0
+* `collateralTokenHolder.owner` should be `vaultTypePDA`
+  * q96RZiNkec9PAfLtgrJaGLvXSK9fxs4DQ1g6RbiSvJg
+* minimumCollateralRatio: 15000
+
 ## Debt Type (pBTC)
 
 debtType: BMvtz4D3pDD7PQrf19A9VDPBN6HCBTww26Gcx1YMy3XJ

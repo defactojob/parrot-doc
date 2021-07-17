@@ -126,7 +126,7 @@ pub struct InitVault<'info> {
 }
 ```
 
-![](accounts/init_vault.dot.svg)
+![](./accounts/init_vault.dot.svg)
 
 ## UpdateDebtType (Admin)
 
@@ -273,7 +273,7 @@ pub struct Borrow<'info> {
 }
 ```
 
-![](accounts/borrow.dot.svg)
+![](./accounts/borrow.dot.svg)
 
 ## Stake
 
@@ -308,7 +308,7 @@ pub struct Stake<'info> {
 }
 ```
 
-![](accounts/stake.dot.svg)
+![](./accounts/stake.dot.svg)
 
 ## Repay
 
@@ -350,7 +350,7 @@ pub struct Repay<'info> {
 }
 ```
 
-![](accounts/repay.dot.svg)
+![](./accounts/repay.dot.svg)
 
 ## Unstake
 
@@ -408,7 +408,7 @@ pub struct Unstake<'info> {
 }
 ```
 
-![](accounts/unstake.dot.svg)
+![](./accounts/unstake.dot.svg)
 
 ## Liquidate
 
