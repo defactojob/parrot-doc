@@ -342,6 +342,58 @@ interest rate per year: 499.999999972176
   * q96RZiNkec9PAfLtgrJaGLvXSK9fxs4DQ1g6RbiSvJg
 * minimumCollateralRatio: 15000
 
+## Vault Type (renBTC-PAI)
+
+```
+vaultType UNKNOWN:PAI E6nGZdWJqDuW1yinj6Nrca16Ah6ggq3GTZre4YGDqwij
+{
+  version: 0,
+  debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
+  collateralToken: CDJWUqTcYTVAKXAVXoQZFes5JUFc7owSeq7eMQcDSbo5,
+  collateralTokenHolder: GXnwWBaW1to6aewGJuEHD1GjT8kM6gsb7uEtHDpC9RL2,
+  priceOracle: 5XHsK3Jmj8LfkvWaWEPNb7Mm4UguodREtixrc9F65FRK,
+  nonce: 255,
+  minimumCollateralRatio: 15000,
+  liquidationCollateralRatio: 12500,
+  liquidationPenalty: 500,
+  interestRate: 584942417,
+  interestAccum: 0,
+  interestAccumUpdated: 87957245,
+  accruedInterests: 0,
+  debtCeiling: 3000000000000,
+  totalDebt: 0
+}
+
+{
+  vaultTypePDA: 7Efka6Lp7i1zUdQxwCpVpCKkiU52t9HR8QULir3K6oBe,
+  collateralHolder: {
+    mint: CDJWUqTcYTVAKXAVXoQZFes5JUFc7owSeq7eMQcDSbo5,
+    owner: 7Efka6Lp7i1zUdQxwCpVpCKkiU52t9HR8QULir3K6oBe,
+    amount: 0,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+
+interest rate per year: 20 (0.2%)
+```
+
+* collateralToken: CDJWUqTcYTVAKXAVXoQZFes5JUFc7owSeq7eMQcDSbo5 (renBTC)
+* priceOracle: 5XHsK3Jmj8LfkvWaWEPNb7Mm4UguodREtixrc9F65FRK
+* interestRate: 20 (0.2%)
+* `collateralTokenHolder.owner` should be `vaultTypePDA`
+  * 7Efka6Lp7i1zUdQxwCpVpCKkiU52t9HR8QULir3K6oBe
+* minimumCollateralRatio: 15000
+
 ## Debt Type (pBTC)
 
 debtType: BMvtz4D3pDD7PQrf19A9VDPBN6HCBTww26Gcx1YMy3XJ
