@@ -186,7 +186,7 @@ vaultType USDT: 85EuQhTe2ZmbQpmTjqymLmKepgZgJytYFavvivpDwyTg
 * `collateralTokenHolder.owner` should be `vaultTypePDA`
 * minimumCollateralRatio: 10495
 
-## Vault Type (USDC)
+## Vault Type (USDC-PAI)
 
 ```
 vaultType USDC: BgA1FW2FbKCSEoi96atEZK9PToqvVos4f9hqESLJ2Zt1
@@ -197,15 +197,11 @@ vaultType USDC: BgA1FW2FbKCSEoi96atEZK9PToqvVos4f9hqESLJ2Zt1
   collateralTokenHolder: E6rHy8KhRYbrZg8qxRvVVyRYu5gRCHLpCbtqMaxUQVMq,
   priceOracle: STABLEQRACLE1111111111111111111111111111111,
   nonce: 253,
-  minimumCollateralRatio: 10495,
+  minimumCollateralRatio: 10100,
   liquidationCollateralRatio: 10000,
   liquidationPenalty: 500,
-  interestRate: 0,
-  interestAccum: 0,
-  interestAccumUpdated: 80210276,
-  accruedInterests: 0,
-  debtCeiling: 50000000000,
-  totalDebt: 0
+  interestRate: 292471208,
+  // ...
 }
 {
   vaultTypePDA: DefDiDiauGqS8ZUiHHuRCpmt8XZPGTTp6DY7UQP5NkkP,
@@ -230,9 +226,63 @@ vaultType USDC: BgA1FW2FbKCSEoi96atEZK9PToqvVos4f9hqESLJ2Zt1
 
 * collateralToken: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
 * priceOracle: STABLEQRACLE1111111111111111111111111111111
-* interestRate: 0
+* interestRate: 0.1%
 * `collateralTokenHolder.owner` should be `vaultTypePDA`
-* minimumCollateralRatio: 10495
+* minimumCollateralRatio: 10100
+
+## Vault Type (USDC-PAI+earn)
+
+vaultType USDC:PAI+earn 5g9426VNjmHmuWNc9G4wur7Gonj7hkBr7wHxsyZ3GoLr
+
+The difference between this and USDC-PAI is that the earn vault implements strategy to invest the staked USDC to earn extra yield for our users.
+
+```
+{
+  version: 0,
+  debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
+  collateralToken: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,
+  collateralTokenHolder: FeN4uzLRGF2dt7fVRqVXt67QkdywoN4sSZL7SmKGTbrM,
+  priceOracle: STABLEQRACLE1111111111111111111111111111111,
+  nonce: 255,
+  minimumCollateralRatio: 10100,
+  liquidationCollateralRatio: 10000,
+  liquidationPenalty: 500,
+  interestRate: 292471208,
+  interestAccum: 0,
+  interestAccumUpdated: 88098926,
+  accruedInterests: 0,
+  debtCeiling: 2000000000000,
+  totalDebt: 0
+}
+
+{
+  vaultTypePDA: AjExAjiLEDLLka42n1biVs5akE5qJ6gNTHH8JKByxW4h,
+  collateralHolder: {
+    mint: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,
+    owner: AjExAjiLEDLLka42n1biVs5akE5qJ6gNTHH8JKByxW4h,
+    amount: 0,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+
+interest rate per year: 0.1%
+```
+
+* collateralToken: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+* priceOracle: STABLEQRACLE1111111111111111111111111111111
+* interestRate: 0.1%
+* `collateralTokenHolder.owner` should be `vaultTypePDA`
+* minimumCollateralRatio: 10100 (101%)
 
 ## Vault Type (SOL)
 
