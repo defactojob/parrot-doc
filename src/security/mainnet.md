@@ -394,8 +394,9 @@ interest rate per year: 499.999999972176
 
 ## Vault Type (renBTC-PAI)
 
+vaultType renBTC:PAI E6nGZdWJqDuW1yinj6Nrca16Ah6ggq3GTZre4YGDqwij
+
 ```
-vaultType UNKNOWN:PAI E6nGZdWJqDuW1yinj6Nrca16Ah6ggq3GTZre4YGDqwij
 {
   version: 0,
   debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
@@ -443,6 +444,105 @@ interest rate per year: 20 (0.2%)
 * `collateralTokenHolder.owner` should be `vaultTypePDA`
   * 7Efka6Lp7i1zUdQxwCpVpCKkiU52t9HR8QULir3K6oBe
 * minimumCollateralRatio: 15000
+
+
+## Vault Type (Mercurial LP Token (USDC-USDT-UST)-PAI)
+
+```
+vaultType Mercurial LP Token (USDC-USDT-UST):PAI BXLfuBETi9QPJegbsUL2QPbNdEncKFKiVqEd8PgDtt9J
+{
+  version: 0,
+  debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
+  collateralToken: 57h4LEnBooHrKbacYWGCFghmrTzYPVn8PwZkzTzRLvHa,
+  collateralTokenHolder: HPxe6gZogUDcWbFaY6NdDw9jVCfJu3PZi64FLLLnwq6b,
+  priceOracle: STABLEQRACLE1111111111111111111111111111111,
+  nonce: 255,
+  minimumCollateralRatio: 12000,
+  liquidationCollateralRatio: 10000,
+  liquidationPenalty: 500,
+  interestRate: 292471208,
+  interestAccum: 59573460357520,
+  interestAccumUpdated: 90227184,
+  accruedInterests: 3847247373921949830,
+  debtCeiling: 250000000000,
+  totalDebt: 5165092187886048374429830
+}
+{
+  vaultTypePDA: 6EnWVbLNijTPNQEy73MvkPcDeyEvChiKeMY2aVvMtvkC,
+  collateralHolder: {
+    mint: 57h4LEnBooHrKbacYWGCFghmrTzYPVn8PwZkzTzRLvHa,
+    owner: 6EnWVbLNijTPNQEy73MvkPcDeyEvChiKeMY2aVvMtvkC,
+    amount: 500000000,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+```
+* collateralToken: 57h4LEnBooHrKbacYWGCFghmrTzYPVn8PwZkzTzRLvHa (Mercurial LP Token (USDC-USDT-UST))
+* priceOracle: STABLEQRACLE1111111111111111111111111111111
+* interestRate: 0.1%
+* `collateralTokenHolder.owner` should be `vaultTypePDA`
+* minimumCollateralRatio: 12000
+
+
+
+## Vault Type (Saber LP Token (USDC-USDT)-PAI)
+
+```
+vaultType Saber LP Token (USDC-USDT):PAI 3UehpWTy9ASAqCx8AyRu2GaZsdTteZWRbsJ4dYhEkpAs
+{
+  version: 0,
+  debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
+  collateralToken: 2poo1w1DL6yd2WNTCnNTzDqkC6MBXq7axo77P16yrBuf,
+  collateralTokenHolder: ChuQKMWZ6ZusUtaJmQ4fPtAVLqoP2SHamJXgDzcGVDSc,
+  priceOracle: STABLEQRACLE1111111111111111111111111111111,
+  nonce: 255,
+  minimumCollateralRatio: 12000,
+  liquidationCollateralRatio: 10000,
+  liquidationPenalty: 500,
+  interestRate: 292471208,
+  interestAccum: 59414063549160,
+  interestAccumUpdated: 90227125,
+  accruedInterests: 7965198008619703324,
+  debtCeiling: 250000000000,
+  totalDebt: 22136100853649470558903324
+}
+{
+  vaultTypePDA: AvfKigSXwRKXNQ9PTeUDWQnMdZWz2j6oH569t96S1Md5,
+  collateralHolder: {
+    mint: 2poo1w1DL6yd2WNTCnNTzDqkC6MBXq7axo77P16yrBuf,
+    owner: AvfKigSXwRKXNQ9PTeUDWQnMdZWz2j6oH569t96S1Md5,
+    amount: 2112500,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+```
+
+* collateralToken: 2poo1w1DL6yd2WNTCnNTzDqkC6MBXq7axo77P16yrBuf (Saber LP Token (USDC-USDT))
+* priceOracle: STABLEQRACLE1111111111111111111111111111111
+* interestRate: 0.1%
+* `collateralTokenHolder.owner` should be `vaultTypePDA`
+* minimumCollateralRatio: 12000
+
 
 ## Debt Type (pBTC)
 
