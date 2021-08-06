@@ -138,7 +138,7 @@ debtType.debtOriginator: {
 * Debt Type Account: [DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h](https://explorer.solana.com/address/DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h)
 
 
-## Vault Type (USDT)
+## Vault Type (USDT-PAI)
 
 ```
 vaultType USDT: 85EuQhTe2ZmbQpmTjqymLmKepgZgJytYFavvivpDwyTg
@@ -284,7 +284,7 @@ interest rate per year: 0.1%
 * `collateralTokenHolder.owner` should be `vaultTypePDA`
 * minimumCollateralRatio: 10100 (101%)
 
-## Vault Type (SOL)
+## Vault Type (SOL-PAI)
 
 vaultType wSOL: 8PcJ5FmtmuYQCvBhaHkVY5DKVBn8BsMtV5RVqHU4h8ir
 
@@ -339,7 +339,7 @@ interest rate per year: 499.999999972176 (5%)
 * liquidationPenalty: 500 (5%)
 * debtCeiling 25000000001 (25k)
 
-## Vault Type (SRM)
+## Vault Type (SRM-PAI)
 
 vaultType SRM:PAI 2EZB7gas5vmRAtB3HQkGvacQ4NKvdmC1gaeMUSE3ivKD
 
@@ -542,6 +542,137 @@ vaultType Saber LP Token (USDC-USDT):PAI 3UehpWTy9ASAqCx8AyRu2GaZsdTteZWRbsJ4dYh
 * interestRate: 0.1%
 * `collateralTokenHolder.owner` should be `vaultTypePDA`
 * minimumCollateralRatio: 12000
+
+## Debt Type (pSOL)
+
+debtType: FfmNwJYpNKLaK914DoLZR7vtj9zww1SB4E5bZUfXWKwa
+
+```
+{
+  debtType: {
+    version: 0,
+    debtToken: 9EaLkQrbjmbbuZG9Wdpo8qfNUEjHATJFSycEmw6f1rGX,
+    debtOriginator: 7rAdiCgEKtzRie684jct9K1KmMZuatj3CLn7Gtgx7yef,
+    interestsHolder: AYjx6RqkHbJndSU6SkYmrGgFLcwrKh1PoRS3RpvkfrC3,
+    owner: 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te,
+    nonce: 255
+  },
+  debtTypePDA: 9NRJVSRHWLxPUGe5JppM9htL5rzpCsWULXRiPjEAzSFK,
+
+  debtOriginator: {
+    mint: 9EaLkQrbjmbbuZG9Wdpo8qfNUEjHATJFSycEmw6f1rGX,
+    owner: 9NRJVSRHWLxPUGe5JppM9htL5rzpCsWULXRiPjEAzSFK,
+    amount: 9999994000000,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  },
+  interestsHolder: {
+    mint: 9EaLkQrbjmbbuZG9Wdpo8qfNUEjHATJFSycEmw6f1rGX,
+    owner: 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te,
+    amount: 0,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+```
+
+* `debtType.debtToken` should be pSOL
+  * 9EaLkQrbjmbbuZG9Wdpo8qfNUEjHATJFSycEmw6f1rGX
+* `debtType.debtToken.mintAuthority` should be multisig PDA
+  * 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te
+* `debtType.debtOriginator.owner` should be `debtTypePDA`
+  * 9NRJVSRHWLxPUGe5JppM9htL5rzpCsWULXRiPjEAzSFK
+* `debtType.interestsHolder.owner` should be multisig PDA
+  * 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te
+
+### Debt Token (pSOL)
+
+```
+debtToken: {
+  mintAuthorityOption: 1,
+  mintAuthority: 5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te,
+  supply: 10000000000000,
+  decimals: 9,
+  isInitialized: true,
+  freezeAuthorityOption: 0,
+  freezeAuthority: <Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00>
+},
+```
+
+* SPL Token Account: [9EaLkQrbjmbbuZG9Wdpo8qfNUEjHATJFSycEmw6f1rGX](https://explorer.solana.com/address/9EaLkQrbjmbbuZG9Wdpo8qfNUEjHATJFSycEmw6f1rGX)
+* Mint Authority: [5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te](https://explorer.solana.com/address/5jwBGfXVpcEY9Hqmw2hCu77NMnoMeVKzgKCChf82d1Te)
+  * Should be multisig PDA
+* Decimals: 9
+
+## Vault Type (mSOL-pSOL)
+
+mSOL:pSOL GVXdLX19Aqfa28E8iY8gbTCZL7xxPPvC5pLM9xTF7rhp
+
+```
+{
+  version: 0,
+  debtType: FfmNwJYpNKLaK914DoLZR7vtj9zww1SB4E5bZUfXWKwa,
+  collateralToken: mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So,
+  collateralTokenHolder: 4Hd5bVtBpYc4LqRoMGAJZabaucYmBBxsbv57SMAWakmc,
+  priceOracle: STABLEQRACLE1111111111111111111111111111111,
+  nonce: 253,
+  minimumCollateralRatio: 10100,
+  liquidationCollateralRatio: 10000,
+  liquidationPenalty: 500,
+  interestRate: 0,
+  interestAccum: 0,
+  interestAccumUpdated: 90339139,
+  accruedInterests: 0,
+  debtCeiling: 10000000000001,
+  totalDebt: 110680464442257309696000000
+}
+
+{
+  vaultTypePDA: GJU8CWPYSg6Zu4jpMN9M9JSxaftm54NjpZe6QPtiVeXK,
+  collateralHolder: {
+    mint: mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So,
+    owner: GJU8CWPYSg6Zu4jpMN9M9JSxaftm54NjpZe6QPtiVeXK,
+    amount: 15000000,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+
+interest rate per year: 0
+```
+
+* collateralToken: mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So
+* priceOracle: STABLEQRACLE1111111111111111111111111111111
+* `collateralTokenHolder.owner` should be `vaultTypePDA`
+  * GJU8CWPYSg6Zu4jpMN9M9JSxaftm54NjpZe6QPtiVeXK
+* minimumCollateralRatio: 10100 (101%)
 
 
 ## Debt Type (pBTC)
