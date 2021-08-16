@@ -543,6 +543,54 @@ vaultType Saber LP Token (USDC-USDT):PAI 3UehpWTy9ASAqCx8AyRu2GaZsdTteZWRbsJ4dYh
 * `collateralTokenHolder.owner` should be `vaultTypePDA`
 * minimumCollateralRatio: 12000
 
+
+## Vault Type (Raydium LP Token (SOL-USDC)-PAI)
+
+vaultType Raydium LP Token (SOL-USDC):PAI 57sxLnqdvqV6rM2CjV45ip5vRAWG9CK4aF2GwuzHXZFT
+{
+  version: 0,
+  debtType: DNFiMrAVT3RatwZwfMxRfeVvsY96ha18ZnXKyuZkFh5h,
+  collateralToken: 8HoQnePLqPj4M7PUDzfw8e3Ymdwgc7NLGnaTUapubyvu,
+  collateralTokenHolder: 2v1pprQaU9ScyVDkoEZqbi4LmDREGokKt3vtT2QfkaTD,
+  priceOracle: Bebd9BVRZKqJEMtZXVggiVZY6BDFdqW9WP9wzNMje3L,
+  nonce: 254,
+  minimumCollateralRatio: 100000,
+  liquidationCollateralRatio: 20000,
+  liquidationPenalty: 500,
+  interestRate: 584942417,
+  interestAccum: 0,
+  interestAccumUpdated: 91466281,
+  accruedInterests: 0,
+  debtCeiling: 100000000000,
+  totalDebt: 0
+}
+{
+  vaultTypePDA: 4zTNPK46rsRNRCpbkGChBaEZZYYMoZ7YaBEn51yfBHuW,
+  collateralHolder: {
+    mint: 8HoQnePLqPj4M7PUDzfw8e3Ymdwgc7NLGnaTUapubyvu,
+    owner: 4zTNPK46rsRNRCpbkGChBaEZZYYMoZ7YaBEn51yfBHuW,
+    amount: 0,
+    delegateOption: 0,
+    delegate: null,
+    state: 1,
+    isNativeOption: 0,
+    isNative: false,
+    delegatedAmount: 0,
+    closeAuthorityOption: 0,
+    closeAuthority: null,
+    isInitialized: true,
+    isFrozen: false,
+    rentExemptReserve: null
+  }
+}
+
+* collateralToken: 8HoQnePLqPj4M7PUDzfw8e3Ymdwgc7NLGnaTUapubyvu (Raydium LP Token (SOL-USDC))
+* priceOracle: Bebd9BVRZKqJEMtZXVggiVZY6BDFdqW9WP9wzNMje3L
+* interestRate: 0.2%
+* `collateralTokenHolder.owner` should be `vaultTypePDA`
+* minimumCollateralRatio: 100000
+
+
 ## Debt Type (pSOL)
 
 debtType: FfmNwJYpNKLaK914DoLZR7vtj9zww1SB4E5bZUfXWKwa
